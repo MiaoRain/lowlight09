@@ -106,6 +106,109 @@ Tsinghua University</span>
 <!-- End paper abstract -->
 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TSCnet: A Text-driven Semantic-level Controllable Module for Personalized Low-Light Image Enhancement</title>
+  
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <style>
+    /* CSS for the image comparison slider */
+    .comparison-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .comparison-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+    .comparison-image img {
+        display: block;
+        width: 100%;
+    }
+    .slider-bar {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 3px;
+        background-color: white;
+        cursor: ew-resize;
+    }
+  </style>
+</head>
+<body>
+  
+<!-- Other sections of the page -->
+
+<!-- Image comparison slider -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="comparison-container" id="comparison-container">
+        <div class="comparison-image" style="clip: rect(0, 50%, auto, 0);">
+          <img src="MEF.png" alt="Low Light Image">
+        </div>
+        <div class="comparison-image">
+          <img src="DICM.png" alt="Bright Image">
+        </div>
+        <div class="slider-bar" id="slider-bar"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- End image comparison slider -->
+
+<!-- JavaScript for the image comparison slider -->
+<script>
+    const container = document.getElementById("comparison-container");
+    const slider = document.getElementById("slider-bar");
+    const image = container.querySelector(".comparison-image:first-child");
+
+    container.addEventListener("mousemove", (e) => {
+        const rect = container.getBoundingClientRect();
+        const xPos = e.clientX - rect.left;
+        const width = rect.width;
+        const percent = (xPos / width) * 100;
+        image.style.clip = `rect(0, ${percent}%, auto, 0)`;
+        slider.style.left = `${percent}%`;
+    });
+</script>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            You are free to borrow the design of this website, we just ask that you link back to this page in the footer. 
+            This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+
+  
 <!-- Image carousel -->
 <section class="hero is-small">
   <div class="hero-body">
